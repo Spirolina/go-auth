@@ -1,8 +1,12 @@
 package main
 
-import "fmt"
+import (
+	"net/http"
+
+	"github.com/Spirolina/go-auth/handlers"
+)
 
 func main() {
-	fmt.Println("hello world")
-
+	http.HandleFunc("/", handlers.Welcome)
+	http.ListenAndServe(":5500", nil)
 }
